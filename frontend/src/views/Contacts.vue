@@ -22,10 +22,12 @@
                     <div style="text-align: center;" class="row">
                         <h2 class="soc_title">Социальные сети</h2>
                         <div class="col">
-                            <a class="ling_soc" href="#"><img  src="../../public/images/telegram.png"></a>
+                            <a class="ling_soc" href="https://t.me/shak1ch"><img  src="../../public/images/telegram.png"></a>
+                            <h4 class="soc_title">Telegram</h4>
                         </div>
                         <div class="col">
-                            <a class="ling_soc" href="#"><img  src="../../public/images/instagram.png"></a>
+                            <a class="ling_soc" href="https://instagram.com/shak1ch"><img  src="../../public/images/instagram.png"></a>
+                            <h4 class="soc_title">Instagram</h4>
                         </div>
                     </div>
                 </div>
@@ -114,6 +116,10 @@
         background-image: linear-gradient(90deg, #efb7ef, #7ebff9);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+    .soc_title {
+        color: white;
+        margin-top: 20px;
     }
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+    <h1>Not Found</h1>
 </template>
 
 <style scoped>

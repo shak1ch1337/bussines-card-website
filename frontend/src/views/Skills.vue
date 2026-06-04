@@ -1,26 +1,6 @@
 <template>
     <Header />
 
-    <!--<div class="container">
-        <div class="row marg">
-            <h1 class="title_page">Какие технологии я применяю</h1>
-            <div class="col">
-                <AboutBlock title="Телеграм Боты"
-                content="Разработка телеграм ботов для различных задач, от простой автоматизации до продажи товаров"
-                icon="images/tg-bots.png"/>
-            </div>
-            <div class="col">
-                <AboutBlock title="Лендинги" 
-                content="Разработка лендингов для визиток и портфолио в веб-формате, в которых есть обратнрая связь и контакты"
-                icon="images/internet-banking.png"/>
-            </div>
-            <div class="col">
-                <AboutBlock title="Несложные сайты"
-                content="Разработка несложных многостраничных сайтов и веб-приложений с базой данных"
-                icon="images/app-development.png"/>
-            </div>
-        </div>
-    </div>-->
 
     <div class="container">
         <h1 class="title_page">Какие технологии я использую</h1>

@@ -4,12 +4,12 @@
 
     <div class="container">
         <div class="row align-items-center marg">
-            <div class="col" >
+            <div class="col-xs-12 col-sm-7 col-md-6 col-lg-6" >
                 <span class="my-name">I am Daniil</span>
                 <h1 class="position">Backend&Software<br>Developer</h1>
                 <p class="description">
                     Меня зовут Даниил и я занимаюсь программированием на протяжении 8 лет. 
-                    На данный момент я развиваюсь в сфере написание Телеграм-ботов, разработки Лендингов и 
+                    На данный момент я развиваюсь в сфере написания Телеграм-ботов, разработки Лендингов и 
                     небольших сайтов и веб-приложений. Вы можете найти и посмотреть мое портфолио на данном сайте.
                 </p>
             </div>
@@ -49,10 +49,11 @@
         -webkit-text-fill-color: transparent;
     }
     .photo {
-        width: 500px;
+        width: 400px;
         border: none;
         border-radius: 100%;
         outline: none;
+        float: right;
     }
 
     .ots {
@@ -60,6 +61,7 @@
     }
     .marg {
         margin: 17% auto;
+        
     }
     .vert-center {
         align-items: center;

@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+    <h1>TST</h1>
 </template>
 
 <style scoped>

@@ -1,27 +1,15 @@
 <template>
-
-    <!--<nav class="navbar-default head_btn_line">-->
         <nav class="navbar-default head_btn_line">
         <div class="container ">
             <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item"><a href="/" class="nav-link link-color">Главная</a></li>
                 <li class="nav-item"><a href="/about" class="nav-link link-color">О проектах</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-color">Портфолио</a></li>
+                <li class="nav-item"><a href="/portfolio" class="nav-link link-color">Портфолио</a></li>
                 <li class="nav-item"><a href="/skills" class="nav-link link-color">Навыки</a></li>
                 <li class="nav-item"><a href="/contacts" class="nav-link link-color">Контакты</a></li>
             </ul>
         </div>
     </nav>
-
-    <!--<header class="d-flex justify-content-center py-3 head_btn_line">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-      </ul>
-    </header>-->
 
 </template>
 
