@@ -2,16 +2,16 @@
     <div class="container">
         <div class="block">
             <div class="row">
-            <h2>Title</h2>
+            <h2>{{ title }}</h2>
             <div class="row">
-                <p>description</p>
+                <p>{{ description }}</p>
             </div>
             <div class="row links">
                 <div class="col-5">
                     <span>Link: </span>
                 </div>
                 <div class="col-7">
-                    <a href="#">Link project</a>
+                    <a href="#">{{ project_link }}</a>
                 </div>
             </div>
             <div class="row">
@@ -19,11 +19,11 @@
                     <span>Link Git: </span>
                 </div>
                 <div class="col-7">
-                    <a href="#">Link git</a>
+                    <a href="#">{{ github_link }}</a>
                 </div>
             </div>
             <div class="row">
-                <span>Date</span>
+                <span>{{ date }}</span>
             </div>
         </div>
         </div>
@@ -55,5 +55,28 @@
 </style>
 
 <script>
-
+    export default {
+        props: {
+            title: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            },
+            project_link: {
+                type: String,
+                required: true
+            },
+            github_link: {
+                type: String,
+                required: true
+            },
+            date: {
+                type: Date,
+                required: true
+            }
+        }
+    }
 </script>

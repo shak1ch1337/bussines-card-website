@@ -1,7 +1,7 @@
 <template>
     <Header />
 
-    <div class="container ">
+    <div class="container">
         <div class="container-fluid ">
             <div class="row form form_line">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 " >
@@ -21,14 +21,17 @@
                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6" >
                     <div style="text-align: center;" class="row">
                         <h2 class="soc_title">Социальные сети</h2>
-                        <div class="col">
-                            <a class="ling_soc" href="https://t.me/shak1ch"><img  src="../../public/images/telegram.png"></a>
-                            <h4 class="soc_title">Telegram</h4>
+                        <div class="container cent">
+                            <Social social_photo="../../public/images/telegram.png" social_name="Telegram"
+                            link="https://t.me/shak1ch"/>
+                            <Social social_photo="../../public/images/instagram.png" social_name="Instagram"
+                            link="https://instagram.com/shak1ch"/>
+                            <Social social_photo="../../public/images/email.png" social_name="shak1ch.1337@gmail.com"
+                            link="#"/>
+                            <Social social_photo="../../public/images/github.png" social_name="Github"
+                            link="https://github.com/shak1ch1337"/>
                         </div>
-                        <div class="col">
-                            <a class="ling_soc" href="https://instagram.com/shak1ch"><img  src="../../public/images/instagram.png"></a>
-                            <h4 class="soc_title">Instagram</h4>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -38,6 +41,7 @@
 </template>
 
 <style scoped>
+
     .form {
         display: flex;
         justify-content: center; /* Центрирует по горизонтали */
@@ -125,9 +129,10 @@
 
 <script>
     import Header from '@/components/Header.vue';
+    import Social from '@/components/Social.vue';
 
 
     export default {
-        components: { Header }
+        components: { Header, Social }
     }
 </script>

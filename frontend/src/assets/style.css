@@ -4,5 +4,11 @@ body {
     background-size: cover;
     background-position: center;
     height: 100%;
+}
 
+.central_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
