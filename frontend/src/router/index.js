@@ -5,8 +5,11 @@ import Skills from "@/views/Skills.vue";
 import Contacts from "@/views/Contacts.vue";
 import Portfolio from "@/views/Portfolio.vue";
 
+import Manager from "@/views/Manager.vue";
 import LoginPage from "@/views/LoginPage.vue";
+
 import NotFound from "@/views/NotFound.vue";
+
 
 
 const routes = [
@@ -15,6 +18,7 @@ const routes = [
     { path: "/skills", component: Skills },
     { path: "/contacts", component: Contacts },
     { path: "/portfolio", component: Portfolio },
+    { path: "/manager", component: Manager },
     { path: "/manager/login", component: LoginPage },
 
     

@@ -20,6 +20,8 @@ services:
       - "5173:5173"
   db:
     image: mariadb:10.11
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: notSecureChangeMe
