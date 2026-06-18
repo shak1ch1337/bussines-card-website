@@ -6,16 +6,16 @@
             <div class="row form form_line">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 " >
                     <h1 class="title_form">Форма для связи</h1>
-                    <form>
+                    <form method="post">
                         <div class="mb-3">
                             <label for="email" class="form_label">Адрес эл. почты</label>
-                            <input type="email" class=" form_control" id="email">
+                            <input v-model="email" type="email" class=" form_control" id="email">
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form_label">Ваше сообщение</label>
-                            <textarea class="form_control_area" aria-label="С текстовым полем"></textarea>
+                            <textarea v-model="message" class="form_control_area" aria-label="С текстовым полем"></textarea>
                         </div>
-                        <button type="submit" class="btn_form">Отправить</button>
+                        <button @click="SendMessage()" type="button" class="btn_form">Отправить</button>
                     </form>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6" >
@@ -131,8 +131,48 @@
     import Header from '@/components/Header.vue';
     import Social from '@/components/Social.vue';
 
+    import axios from "axios";
+
 
     export default {
-        components: { Header, Social }
+        data() {
+            return {
+                email: '',
+                message: '',
+                error: '',
+                info: ''
+            }
+        },
+        components: { Header, Social },
+        methods: {
+            SendMessage()
+            {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!this.email)
+                {
+                    alert("Вы обязательно должны ввести свой адрес!");
+                    return false;
+                }
+                else if (!emailRegex.test(this.email))
+                {
+                    alert("Введите адрес корректно!");
+                    return false;
+                }
+                if (this.message.length < 10)
+                {
+                    alert("Сообщение должно быть более 10 символов!");
+                    return false;
+                }
+
+
+                axios.post('http://localhost:8000/api/messages', {
+                    address: this.email,
+                    message: this.message
+                }).then(response => {alert(response.data.message)});
+
+                
+            }
+        },
     }
 </script>

@@ -5,7 +5,7 @@
                 <h3>Панель администратора</h3>
             </div>
             <div class="col-1">
-                <button class="btn btn-primary">Выход</button>
+                <button @click="Quit()" class="btn btn-primary">Выход</button>
             </div>
         </dic>
         
@@ -32,8 +32,9 @@
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
-                     <TableBody ID_Project="1" Title="Project 1" Description="Description 1"
-                     Link="Link" Gitlink="Gitlink" date="24.06.2023"/>
+                     <TableBody v-for="project in projects" :key="project.id" :ID_Project= project.id :Title=project.title
+                     :Description=project.description :project_link=project.link_project
+                     :Gitlink=project.link_github :date=project.created_at />
                 </table>
             </div>
         </div>
@@ -50,12 +51,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <input class="add_project" placeholder="Название проекта">
-                        <textarea class="add_project" placeholder="Краткое описание проекта"></textarea>
-                        <input class="add_project" placeholder="Ссылка на проект">
-                        <input class="add_project" placeholder="Ссылка на код проекта">
-                        <button class="form_btn" type="submit">Отправить</button>
+                    <form method="post">
+                        <input v-model="title" class="add_project" placeholder="Название проекта">
+                        <textarea v-model="description" class="add_project" placeholder="Краткое описание проекта"></textarea>
+                        <input v-model="link" class="add_project" placeholder="Ссылка на проект">
+                        <input v-model="gitlink" class="add_project" placeholder="Ссылка на код проекта">
+                        <button @click="createProject()" class="form_btn" type="button">Отправить</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -109,8 +110,61 @@
 
 <script>
     import TableBody from '@/components/TableBody.vue';
+    import Cookie from "js-cookie";
+    import axios from 'axios';
+
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
 
     export default {
-        components: { TableBody }
+        data()
+        {
+            return {
+                title: '',
+                description: '',
+                link: '',
+                gitlink: '',
+                projects: []
+            }
+        },
+        components: { TableBody },
+        mounted() {
+            this.getProjects();
+        },
+        methods: {
+            goToPage(path)
+            {
+                this.$router.replace(path);
+            },
+            Quit()
+            {
+                Cookie.remove('token');
+                this.goToPage('/manager/login');
+            },
+            createProject()
+            {
+                let answer;
+                console.log(Cookie.get('token'));
+                axios.post('http://localhost:8000/api/projects', {
+                        title: this.title,
+                        description: this.description,
+                        link_project: this.link,
+                        link_github: this.gitlink
+                    
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${Cookie.get('token')}`
+                    }
+                }).then(response => {answer = response});
+                alert("Проект добавлен!");
+                window.location.reload();
+            },
+            getProjects()
+            {
+                axios.get('http://localhost:8000/api/projects').then(response => {
+                    this.projects = response.data
+                });
+            }
+        }
     }
 </script>

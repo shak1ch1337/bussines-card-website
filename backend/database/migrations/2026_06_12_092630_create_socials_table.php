@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
-            $table->string('soc_title');
-            $table->string("link");
-            $table->string("icon");
+            $table->string("title_social")->nullable();
+            $table->string("link")->nullable();
+            $table->string("icon")->nullable();
         });
     }
 

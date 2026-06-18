@@ -68,4 +68,9 @@ class UserController extends Controller
             return response()->json(['message' => 'error']);
         }
     }
+
+    public function me(Request $request)
+    {
+        $user = $request->user();
+    }
 }

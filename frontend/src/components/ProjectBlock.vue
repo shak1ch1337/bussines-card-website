@@ -8,18 +8,18 @@
             </div>
             <div class="row links">
                 <div class="col-5">
-                    <span>Link: </span>
+                    <span>Ссылка: </span>
                 </div>
                 <div class="col-7">
-                    <a href="#">{{ project_link }}</a>
+                    <a :href=project_link>Ссылка на проект</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-5">
-                    <span>Link Git: </span>
+                    <span>Код: </span>
                 </div>
                 <div class="col-7">
-                    <a href="#">{{ github_link }}</a>
+                    <a :href=github_link>Ссылка на код</a>
                 </div>
             </div>
             <div class="row">

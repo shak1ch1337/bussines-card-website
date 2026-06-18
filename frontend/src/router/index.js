@@ -5,6 +5,9 @@ import Skills from "@/views/Skills.vue";
 import Contacts from "@/views/Contacts.vue";
 import Portfolio from "@/views/Portfolio.vue";
 
+import Cookies from 'js-cookie';
+import axios from 'axios';
+
 import Manager from "@/views/Manager.vue";
 import LoginPage from "@/views/LoginPage.vue";
 
@@ -18,14 +21,22 @@ const routes = [
     { path: "/skills", component: Skills },
     { path: "/contacts", component: Contacts },
     { path: "/portfolio", component: Portfolio },
-    { path: "/manager", component: Manager },
     { path: "/manager/login", component: LoginPage },
+    {
+        path: "/manager",
+        component: Manager,
+        beforeEnter: (to, from) => {
+            const token = Cookies.get("token");
 
+            if (!token) return { path: "/manager/login" }
+        }
+    },
+    
     
     { path: "/:pathMatch(.*)*",
         name: "NotFound",
         component: NotFound
-     }
+    }
 ]
 
 

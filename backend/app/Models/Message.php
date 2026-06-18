@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Social extends Model
+class Message extends Model
 {
     public $timestamps = false;
 
     protected $fillable = [
-        "title_social",
-        "link",
-        "icon"
+        "address",
+        "message"
     ];
 }

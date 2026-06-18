@@ -14,7 +14,8 @@
                 </p>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6" >
-                <img src="../images/img.jpg" class="img-fluid photo">
+                <!--<img src="../images/img.jpg" class="img-fluid photo">-->
+                <img src="../../public//storage/image.jpg" class="img-fluid photo">
             </div>
         </div>
     </div>

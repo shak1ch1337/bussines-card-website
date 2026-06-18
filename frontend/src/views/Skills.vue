@@ -24,7 +24,7 @@
                         </div>
                         <div class="col">
                             <AboutBlock title="VueJS"
-                            content="VueJS - это фреймворк языка JavaScript, который я использую в основнои для написания лендингов и клиентской части сайтов"
+                            content="VueJS - это фреймворк языка JavaScript, который я использую в основном для написания лендингов и клиентской части сайтов"
                             icon="images/document.png"/>
                         </div>
                     </div>

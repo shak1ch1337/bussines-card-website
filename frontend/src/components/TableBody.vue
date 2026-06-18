@@ -4,12 +4,12 @@
             <td scope="row">{{ ID_Project }}</td>
             <td>{{ Title }}</td>
             <td>{{ Description }}</td>
-            <td><a href="#">{{ Link }}</a></td>
-            <td><a href="#">{{ Gitlink }}</a></td>
+            <td><a :href=project_link>Проект</a></td>
+            <td><a :href=Gitlink>Код</a></td>
             <td>{{ date }}</td>
 
             <td>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <button class="btn btn-danger" @click="deleteProject(ID_Project)">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -30,6 +30,8 @@
 </style>
 
 <script>
+    import axios from 'axios';
+    import Cookie from 'js-cookie';
     export default {
         props: {
             ID_Project: {
@@ -44,10 +46,6 @@
                 type: String,
                 required: true
             },
-            Link: {
-                type: String,
-                required: true
-            },
             Gitlink: {
                 type: String,
                 required: true
@@ -55,7 +53,20 @@
             date: {
                 type: String,
                 required: true
+            },
+            project_link: {
+                type: String,
+                required: true
             }
-        }
+        },
+        methods: {
+            deleteProject(id)
+            {
+                console.log(id);
+                axios.delete(`http://localhost:8000/api/projects/${id}`, { headers:{ Authorization: `Bearer ${Cookie.get('token')}` } });
+                alert("Проект удвлен");
+                window.location.reload();
+            }
+        },
     }
 </script>

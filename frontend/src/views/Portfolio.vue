@@ -3,35 +3,9 @@
     <div class="container">
         <h1 class="portfolio_title">Мои работы</h1>
         <div class="row">
-            <div class="col">
-                <ProjectBlock title="Project 1" description="Project 1 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-            <div class="col">
-                <ProjectBlock title="Project 2" description="Project 2 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-            <div class="col">
-                <ProjectBlock title="Project 3" description="Project 3 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-            <div class="col">
-                <ProjectBlock title="Project 4" description="Project 4 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <ProjectBlock title="Project 5" description="Project 5 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-            <div class="col">
-                <ProjectBlock title="Project 6" description="Project 6 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
-            </div>
-            <div class="col">
-                <ProjectBlock title="Project 7" description="Project 7 description"
-                project_link="https://project.com" github_link="https://gitgub.com" date="06.06.2026"/>
+            <div class="col" v-for="project in projects">
+                <ProjectBlock :title=project.title :description=project.description
+                :project_link=project.link_project :github_link=project.link_github :date=project.created_at />
             </div>
         </div>
         
@@ -50,8 +24,21 @@
     import Header from '@/components/Header.vue';
     import ProjectBlock from '@/components/ProjectBlock.vue';
 
+    import axios from 'axios';
+    
+
 
     export default {
+        data() {
+            return {
+                projects: []
+            }
+        },
+        mounted() {
+            axios.get('http://localhost:8000/api/projects').then(response => {
+                this.projects = response.data;
+            });
+        },
         components: { Header, ProjectBlock }
     }
 </script>
