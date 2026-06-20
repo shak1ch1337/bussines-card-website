@@ -1,13 +1,14 @@
 <template>
+    <ManagerHeader />
     <div class="container">
-        <dic class="row">
+        
+        <div class="row">
             <div class="col-11">
                 <h3>Панель администратора</h3>
             </div>
-            <div class="col-1">
-                <button @click="Quit()" class="btn btn-primary">Выход</button>
-            </div>
-        </dic>
+
+           
+        </div>
         
         <div class="row project_table">
             
@@ -110,10 +111,12 @@
 
 <script>
     import TableBody from '@/components/TableBody.vue';
-    import Cookie from "js-cookie";
+    import ManagerHeader from '@/components/ManagerHeader.vue';
+    import Cookies from "js-cookie";
     import axios from 'axios';
 
     import { useRouter } from 'vue-router';
+
     const router = useRouter();
 
     export default {
@@ -127,7 +130,7 @@
                 projects: []
             }
         },
-        components: { TableBody },
+        components: { TableBody, ManagerHeader },
         mounted() {
             this.getProjects();
         },
@@ -138,13 +141,13 @@
             },
             Quit()
             {
-                Cookie.remove('token');
+                Cookies.remove('token');
                 this.goToPage('/manager/login');
             },
             createProject()
             {
                 let answer;
-                console.log(Cookie.get('token'));
+                console.log(Cookies.get('token'));
                 axios.post('http://localhost:8000/api/projects', {
                         title: this.title,
                         description: this.description,

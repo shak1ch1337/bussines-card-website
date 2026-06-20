@@ -4,7 +4,10 @@ import About from "@/views/About.vue";
 import Skills from "@/views/Skills.vue";
 import Contacts from "@/views/Contacts.vue";
 import Portfolio from "@/views/Portfolio.vue";
+import ManagerSocials from "@/views/ManagerSocials.vue";
+import ManagerMessages from "@/views/ManagerMessages.vue";
 
+//import Cookies from 'js-cookie';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -12,6 +15,7 @@ import Manager from "@/views/Manager.vue";
 import LoginPage from "@/views/LoginPage.vue";
 
 import NotFound from "@/views/NotFound.vue";
+
 
 
 
@@ -27,6 +31,24 @@ const routes = [
         component: Manager,
         beforeEnter: (to, from) => {
             const token = Cookies.get("token");
+
+            if (!token) return { path: "/manager/login" }
+        }
+    },
+    {
+        path: "/manager/socials",
+        component: ManagerSocials,
+        beforeEnter: (to, from) => {
+            const token = Cookies.get('token');
+
+            if (!token) return { path: "/manager/login" }
+        }
+    },
+    {
+        path: "/manager/messages",
+        component: ManagerMessages,
+        beforeEnter: (to, from) => {
+            const token = Cookies.get('token');
 
             if (!token) return { path: "/manager/login" }
         }

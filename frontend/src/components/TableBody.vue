@@ -13,11 +13,6 @@
             </td>
         </tr>
     </tbody>
-
-
-
-
-
 </template>
 
 <style scoped>
