@@ -142,7 +142,7 @@
             Quit()
             {
                 Cookies.remove('token');
-                this.goToPage('/manager/login');
+                this.goToPage('/');
             },
             createProject()
             {
@@ -156,11 +156,11 @@
                     
                 }, {
                     headers: {
-                        Authorization: `Bearer ${Cookie.get('token')}`
+                        Authorization: `Bearer ${Cookies.get('token')}`
                     }
                 }).then(response => {answer = response});
                 alert("Проект добавлен!");
-                window.location.reload();
+                //window.location.reload();
             },
             getProjects()
             {
